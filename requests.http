@@ -4,7 +4,7 @@ GET http://localhost:3000/user
 GET http://localhost:3000/user/4
 
 ###
-DELETE http://localhost:3000/user/2
+DELETE http://localhost:3000/user/4
 
 ###
 POST http://localhost:3000/user
@@ -12,6 +12,15 @@ Content-Type: application/json
 
 {
     "name": "Luan Ramos",
-    "email": "luan.developer@gmail.cr",
+    "email": "luan@gmail.com",
+    "password": "123456"
+}
+
+###
+PATCH http://localhost:3000/user/1
+Content-Type: application/json
+
+{
+    "name": "Luan",
     "password": "123456"
 }

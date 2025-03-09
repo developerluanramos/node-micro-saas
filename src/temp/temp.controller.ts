@@ -6,7 +6,7 @@ import { UpdateTempDto } from './dto/update-temp.dto';
 @Controller('temp')
 export class TempController {
   constructor(private readonly tempService: TempService) {}
-
+  
   @Post()
   create(@Body() createTempDto: CreateTempDto) {
     return this.tempService.create(createTempDto);

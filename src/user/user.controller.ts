@@ -1,6 +1,8 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import User from './user.entity';
 import { UserRepository } from './user.repository';
+import { StoreDto } from './dto/store.dto';
+import { UpdateDto } from './dto/update.dto';
 
 @Controller('user')
 export class UserController {
@@ -13,8 +15,8 @@ export class UserController {
     }
 
     @Post()
-    async store(@Body() user: User) {
-        const newUser = this.userRepository.store(user)
+    async store(@Body() storeUserDto: StoreDto) {
+        const newUser = this.userRepository.store(storeUserDto)
         return newUser
     }
 
@@ -26,6 +28,11 @@ export class UserController {
 
     @Delete(':id')
     async delete(@Param('id') id: string) {
-        this.userRepository.delete(+id)
+        await this.userRepository.delete(+id)
+    }
+
+    @Patch(':id')
+    async update(@Param('id') id: string, @Body() updateUserDto: UpdateDto) {
+        await this.userRepository.update(+id, updateUserDto);
     }
 }
