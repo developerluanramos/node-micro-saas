@@ -1,11 +1,17 @@
 GET http://localhost:3000/user
 
 ###
+GET http://localhost:3000/user/4
+
+###
+DELETE http://localhost:3000/user/2
+
+###
 POST http://localhost:3000/user
 Content-Type: application/json
 
 {
     "name": "Luan Ramos",
-    "email": "luan.developer@gmail.br",
+    "email": "luan.developer@gmail.cr",
     "password": "123456"
 }

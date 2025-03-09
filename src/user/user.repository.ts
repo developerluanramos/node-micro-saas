@@ -23,4 +23,12 @@ export class UserRepository {
             data: user as any
         });
     }
+
+    async delete(id: Number) {
+        return this.prismaService.user.delete({
+            where: {
+                id: id as any
+            }
+        });
+    }
 }
